@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100px;
-  height: 60px;
+  height: 50px;
   &:hover {
     background-color: #ffffff;
     cursor: pointer;
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 
 const Button = ({ title }) => {
   return (
-    <Wrapper  onClick={() => alert(`Route to ${title} page`)}>
+    <Wrapper  onClick={() => alert(`Route to ${title} page right now`)}>
       <Title>{title}</Title>
     </Wrapper>
   )
