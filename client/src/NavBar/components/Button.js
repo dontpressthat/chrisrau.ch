@@ -7,33 +7,34 @@ import {
   NavLink
 } from "react-router-dom";
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 50px;
-  color: #555555;
-  &:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
-  };
-`
-
-const StyledNavLink = styled(NavLink)`
+const Title = styled.a`
   font-size: 20px;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
+`
+
+const StyledNavLink = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  width: 70px;
+  height: 30px;
   color: #222222;
   text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  &:hover {
+    border-bottom: solid #888888 2px;
+  };
 `
 
 const Button = ({ title }) => {
-  const link = title === 'Home' ? '/' : `/#/${title}`;
+  const link = title === 'Home' ? '/' : `/${title.toLowerCase()}`;
   return (
-    <Wrapper>
-        <StyledNavLink to={link}>{title}</StyledNavLink>
-    </Wrapper>
+    <StyledNavLink exact to={link} activeStyle={{borderBottom: 'solid #888888 2px'}}>{title}</StyledNavLink>
   )
 }
 

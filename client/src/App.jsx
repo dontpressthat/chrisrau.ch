@@ -49,19 +49,13 @@ class App extends React.Component {
       <Container>
         <Router>
           <NavBar />
-        <MainContent>
-          <Switch>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/#/Projects">
-              <Projects />
-            </Route>
-            <Route path="/#/About">
-              <About />
-            </Route>
-          </Switch>
-        </MainContent>
+          <MainContent>
+            <Switch>
+              <Route exact component={Home} path="/" />
+              <Route exact component={Projects} path="/Projects" />
+              <Route exact component={About} path="/About" />
+            </Switch>
+          </MainContent>
         </Router>
         <Copyright>{`© ${year} - Chris Rauch`}</Copyright>
       </Container>
