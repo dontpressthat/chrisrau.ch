@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const NavBar = () => {
   return (
     <Wrapper>
-        <Button title='Home'/>
+        <Button title='Me'/>
         <Button title='Projects'/>
         <Button title='About'/>
     </Wrapper>

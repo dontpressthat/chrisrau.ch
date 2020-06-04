@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavBar from './global-components/NavBar';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -7,7 +7,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from './Pages/Home';
+import Me from './Pages/Me';
 import Projects from './Pages/Projects';
 import About from './Pages/About';
 
@@ -15,7 +15,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 90vw;
-  max-width: 1440px;
+  max-width: 1280px;
   height: 900px;
 `
 
@@ -51,7 +51,7 @@ class App extends React.Component {
           <NavBar />
           <MainContent>
             <Switch>
-              <Route exact component={Home} path="/" />
+              <Route exact component={Me} path="/" />
               <Route exact component={Projects} path="/Projects" />
               <Route exact component={About} path="/About" />
             </Switch>

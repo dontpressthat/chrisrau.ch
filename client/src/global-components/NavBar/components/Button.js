@@ -32,7 +32,7 @@ const StyledNavLink = styled(NavLink)`
 `
 
 const Button = ({ title }) => {
-  const link = title === 'Home' ? '/' : `/${title.toLowerCase()}`;
+  const link = title === 'Me' ? '/' : `/${title.toLowerCase()}`;
   return (
     <StyledNavLink exact to={link} activeStyle={{borderBottom: 'solid #888888 2px'}}>{title}</StyledNavLink>
   )
