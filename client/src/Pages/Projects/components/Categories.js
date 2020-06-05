@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import StyledText from '../../../global-components/styled-components/StyledText';
 
@@ -10,40 +10,59 @@ const Container = styled.div`
   margin-bottom: 20px;
 `
 
-const Separator = styled.a`
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  color: #999999;
-  cursor: default;
-  user-select: none;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-const Categories = ({ handleFilter }) => {
+const Categories = ({ handleFilter, projects }) => {
+
+  const uniqueItems = (elem, i, arr) => arr.indexOf(elem) === i;
+  const categories = projects.map(project => project.category).filter(
+    uniqueItems
+  );
+
   let count = 0;
-  let categoryList = [
-    { name: 'All' },
-    { name: 'Development' },
-    { name: 'Design' },
-    { name: 'Photography' },
-    { name: 'Rendering' }
-  ];
 
-  const [categories, setCategories] = useState(categoryList);
+  const categoryItems = categories.map(item => {
+    count++;
+    return count < categories.length ?
+      <Wrapper key={count}>
+        <StyledText
+          size={14}
+          color='#333333'
+          weight={400}
+          cursor='crosshair'
+          onClick={() => handleFilter(item)}
+          disableHighlight={true}
+          key={item}>
+          {item}
+        </StyledText>
+        <div style={{ margin: '5px' }}>
+          <StyledText
+            size={20}
+            color='#999999'
+            weight={300}
+            cursor='default'
+            disableHighlight={true}>
+            /
+        </StyledText>
+        </div>
+      </Wrapper>
 
-  const categoryItems = categories.map(category => {
-    return <StyledText
-      size={14}
-      color='#333333'
-      weight={400}
-      cursor='crosshair'
-      onClick={() => handleFilter(category.name)}
-      disableHighlight={true}
-      key={category.name}>
-      {category.name}
-    </StyledText>
+      :
+
+      <StyledText
+        size={14}
+        color='#333333'
+        weight={400}
+        cursor='crosshair'
+        onClick={() => handleFilter(item)}
+        disableHighlight={true}
+        key={item}>
+        {item}
+      </StyledText>
   });
 
 

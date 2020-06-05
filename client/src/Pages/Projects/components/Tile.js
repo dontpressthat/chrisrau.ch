@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import StyledText from '../../../global-components/styled-components/StyledText';
 
@@ -12,6 +12,7 @@ const Container = styled.div`
   width: ${tileSize}px;
   height: ${tileSize}px;
   background-image: url(${props => props.image});
+  background-color: gray;
   background-size: cover;
   margin: 5px;
   &:hover {
@@ -27,8 +28,6 @@ const TextWrapper = styled.div`
 `
 
 const Tile = ({ image, name, category }) => {
-  const [hidden, setHidden] = useState(false);
-
   return (
     <Container image={image}>
       <TextWrapper>
