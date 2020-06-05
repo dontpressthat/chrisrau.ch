@@ -8,6 +8,18 @@ const StyledText = styled.a`
   text-decoration: ${props => props.decoration};
   color: ${props => props.color};
   margin-left: ${props => props.indent}px;
+  user-select: ${props => props.disableHighlight === true ? 'none' : null};
+  &:hover {
+    cursor: ${props => props.cursor};
+  }
+
+  @media only screen and (max-width: 960px) {
+    font-size: ${props => props.size * 0.75}px;
+  }
+
+  @media only screen and (max-width: 640px) {
+    font-size: calc(4px + ${props => props.size * 0.50}px);
+  }
 `
 
 export default StyledText;

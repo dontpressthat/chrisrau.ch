@@ -26,6 +26,7 @@ const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   margin-left: 10px;
   margin-right: 10px;
+  cursor: crosshair;
   &:hover {
     border-bottom: solid #888888 2px;
   };

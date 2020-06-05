@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Me from './Pages/Me';
 import Projects from './Pages/Projects';
@@ -16,9 +15,10 @@ const Container = styled.div`
   flex-direction: column;
   width: 90vw;
   max-width: 1280px;
-  height: 900px;
+  height: 100%;
+  min-height: 700px;
+  min-width: 300px;
 `
-
 const MainContent = styled.div`
   background-color: #f0f0f0;
   width: 100%;
