@@ -10,6 +10,7 @@ const TileGrid = styled.div`
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 40px;
 `
 
 const Projects = () => {
