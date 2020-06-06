@@ -39,7 +39,7 @@ const Projects = () => {
       <StyledFlex.Row position=''>
         <StyledFlex.Col size={1} />
         <StyledFlex.Col size={4}>
-          <Categories handleFilter={handleFilter} projects={projectList} />
+          <Categories handleFilter={handleFilter} projects={projectList} active={activeCategory} />
           <TileGrid>
             <ProjectItems projects={projectList} showCategory={activeCategory} />
           </TileGrid>

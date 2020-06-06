@@ -12,7 +12,7 @@ const Container = styled.div`
   width: ${tileSize}px;
   height: ${tileSize}px;
   background-image: url(${props => props.image});
-  background-color: gray;
+  background-color: ${props => props.color};
   background-size: cover;
   margin: 5px;
   &:hover {
@@ -28,8 +28,18 @@ const TextWrapper = styled.div`
 `
 
 const Tile = ({ image, name, category }) => {
+  let color = 'gray';
+  if (category === 'Development') {
+    color = 'lightblue'
+  } else if (category === 'Design') {
+    color = 'lightgreen'
+  } else if (category === 'Photography') {
+    color = 'pink'
+  } else if (category === 'Rendering') {
+    color = 'darkseagreen'
+  } 
   return (
-    <Container image={image}>
+    <Container image={image} color={color}>
       <TextWrapper>
         <StyledText>{name}</StyledText>
         <StyledText>{category}</StyledText>

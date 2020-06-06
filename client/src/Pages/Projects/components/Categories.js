@@ -16,23 +16,24 @@ const Wrapper = styled.div`
   align-items: center;
 `
 
-const Categories = ({ handleFilter, projects }) => {
+const Categories = ({ handleFilter, projects, active }) => {
 
   const uniqueItems = (elem, i, arr) => arr.indexOf(elem) === i;
-  const categories = projects.map(project => project.category).filter(
-    uniqueItems
-  );
+  const categories = projects.map(project => project.category).filter(uniqueItems);
 
   let count = 0;
 
   const categoryItems = categories.map(item => {
     count++;
+
     return count < categories.length ?
       <Wrapper key={count}>
         <StyledText
           size={14}
-          color='#333333'
-          weight={400}
+          color={item === active ? '#4a544e' : '#333333'}
+          weight={item === active ? 600 : 400}
+          fontStyle={item === active ? 'italic' : null}
+          hoverStyle='italic'
           cursor='crosshair'
           onClick={() => handleFilter(item)}
           disableHighlight={true}
@@ -55,8 +56,10 @@ const Categories = ({ handleFilter, projects }) => {
 
       <StyledText
         size={14}
-        color='#333333'
-        weight={400}
+        color={item === active ? '#4a544e' : '#333333'}
+        weight={active === item ? 600 : 400}
+        fontStyle={item === active ? 'italic' : null}
+        hoverStyle='italic'
         cursor='crosshair'
         onClick={() => handleFilter(item)}
         disableHighlight={true}
@@ -68,6 +71,27 @@ const Categories = ({ handleFilter, projects }) => {
 
   return (
     <Container>
+      <StyledText
+        size={14}
+        color={'All' === active ? '#4a544e' : '#333333'}
+        weight={active === 'All' ? 600 : 400}
+        fontStyle={'All' === active ? 'italic' : null}
+        hoverStyle='italic'
+        cursor='crosshair'
+        onClick={() => handleFilter('All')}
+        disableHighlight={true}>
+        All
+      </StyledText>
+      <div style={{ margin: '5px' }}>
+          <StyledText
+            size={20}
+            color='#999999'
+            weight={300}
+            cursor='default'
+            disableHighlight={true}>
+            /
+        </StyledText>
+        </div>
       {categoryItems}
     </Container>
   )
