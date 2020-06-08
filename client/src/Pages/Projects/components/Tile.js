@@ -21,10 +21,11 @@ const Overlay = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  @media only screen and (max-width: 1280px) {
-    background-color: rgba(255, 255, 255, 0.25);
+  @media only screen and (max-width: 1440px) {
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: 0.5s;
   };
-  @media only screen and (min-width: 1280px) {
+  @media only screen and (min-width: 1440px) {
     opacity: 0;
     transition: 0.25s ease-out;
     &:hover {
@@ -39,11 +40,9 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 1280px) {
-    color: #333333;
-  };
-  @media only screen and (min-width: 1280px) {
-    color: lightgray;
+  @media only screen and (max-width: 1440px) {
+    background-color: #4a544e;
+    padding: 10px 30px;
   };
 `
 
@@ -52,22 +51,15 @@ const Tile = ({ image, name, category }) => {
   const [showBox, setShowBox] = useState(false);
 
   let color = 'lightgray';
-  // if (category === 'Development') {
-  //   color = 'lightblue'
-  // } else if (category === 'Design') {
-  //   color = 'lightgreen'
-  // } else if (category === 'Photography') {
-  //   color = 'pink'
-  // } else if (category === 'Rendering') {
-  //   color = 'coral'
-  // }
 
   return (
     <Container image={image} color={color} onMouseEnter={() => setShowBox(true)} onMouseLeave={() => setShowBox(false)}>
       <Overlay>
         <TextWrapper>
-          <StyledText size={20} font='Ubuntu'>{name}</StyledText>
-          <StyledText size={12} weight={300} fontStyle='italic'>{category}</StyledText>
+          <StyledText size={20} color='white' font='Ubuntu'>{name}</StyledText>
+          <div>
+            <StyledText size={12} color='lightgray' weight={300} fontStyle='italic'>{category}</StyledText>
+          </div>
         </TextWrapper>
       </Overlay>
     </Container>
