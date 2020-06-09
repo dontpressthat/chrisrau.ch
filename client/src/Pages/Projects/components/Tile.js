@@ -46,14 +46,11 @@ const TextWrapper = styled.div`
   };
 `
 
-const Tile = ({ image, name, category }) => {
 
-  const [showBox, setShowBox] = useState(false);
-
-  let color = 'lightgray';
+const Tile = ({ image, name, category, handleClick }) => {
 
   return (
-    <Container image={image} color={color} onMouseEnter={() => setShowBox(true)} onMouseLeave={() => setShowBox(false)}>
+    <Container image={image} onClick={() => handleClick(image, name, category)}>
       <Overlay>
         <TextWrapper>
           <StyledText size={20} color='white' font='Ubuntu'>{name}</StyledText>

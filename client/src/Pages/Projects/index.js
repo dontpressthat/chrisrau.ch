@@ -13,7 +13,7 @@ const TileGrid = styled.div`
   margin-bottom: 40px;
 `
 
-const Projects = () => {
+const Projects = ({ handlePopup }) => {
 
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -31,6 +31,7 @@ const Projects = () => {
         category={category}
         name={name}
         image={image}
+        handleClick={handlePopup}
       />
     ))
   );

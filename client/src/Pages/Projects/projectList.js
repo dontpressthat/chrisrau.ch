@@ -54,6 +54,11 @@ const projectList = [
     category: 'Rendering',
     image: `https://picsum.photos/id/${Math.floor(Math.random() * 100)}/500/500`
   },
+  {
+    name: 'Project 12',
+    category: 'IT',
+    image: `https://picsum.photos/id/${Math.floor(Math.random() * 100)}/500/500`
+  },
 ];
 
 export default projectList;
