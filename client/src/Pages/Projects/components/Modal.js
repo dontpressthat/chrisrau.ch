@@ -21,9 +21,15 @@ const ModalBox = styled.div`
   position: relative;
   margin: 1.75rem auto;
   border-radius: 3px;
-  max-width: 800px;
-  height: 850px;
+  /* max-width: 800px; */
+  height: 85vh;
   padding: 2rem;
+  @media only screen and (max-width: 1440px) {
+    width: 75vw;
+  };
+  @media only screen and (min-width: 1440px) {
+    width: 800px;
+  };
 `
 
 const Overlay = styled.div`
