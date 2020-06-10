@@ -22,12 +22,13 @@ const ModalBox = styled.div`
   margin: 1.75rem auto;
   border-radius: 3px;
   /* max-width: 800px; */
-  height: 85vh;
   padding: 2rem;
   @media only screen and (max-width: 1440px) {
+    height: 70vh;
     width: 75vw;
   };
   @media only screen and (min-width: 1440px) {
+    height: 85vh;
     width: 800px;
   };
 `
