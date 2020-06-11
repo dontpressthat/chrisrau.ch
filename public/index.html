@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chris Rauch</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet">
   <style>
-    html, body, #root, #root>div {
+    html,
+    body,
+    #root,
+    #root>div {
       display: flex;
       justify-content: center;
       padding-top: 20px;
       height: max-content;
       min-height: 90vh;
     }
+
     body {
       overflow-y: scroll;
     }
   </style>
 </head>
+
 <body>
   <div id="app"></div>
   <script src="bundle.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+
+  <script src='../firebase-config.js'></script>
+  <script type='module'>
+    // Your web app's Firebase configuration
+    import { firebaseConfig } from '../firebase-config.js';
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </body>
+
 </html>
