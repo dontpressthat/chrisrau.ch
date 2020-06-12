@@ -7,7 +7,7 @@ const StyledFlex = {
   Row: styled.div`
     display: flex;
     align-items: ${(props) => props.position};
-    height: 100%;
+    height: ${(props) => props.height};
   `,
   Col: styled.div`
     flex: ${(props) => props.size};

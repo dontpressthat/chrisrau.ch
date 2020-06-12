@@ -10,6 +10,7 @@ const StyledText = styled.a`
   margin-left: ${props => props.indent}px;
   user-select: ${props => props.disableHighlight === true ? 'none' : null};
   outline: ${props => props.outline};
+  
   &:hover {
     cursor: ${props => props.cursor};
     font-style: ${props => props.hoverStyle};
