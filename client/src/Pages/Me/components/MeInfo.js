@@ -42,7 +42,7 @@ const MeInfo = () => {
         <p>
           <StyledText size={16} weight={400} color='#444444' fontStyle='italic'>
             {
-              ' I am currently looking for a full-stack or front-end position in the San Francisco Bay area!'
+              ' I am currently looking for a full-stack or front-end position in the San Francisco Bay Area!'
             }
           </StyledText>
         </p>
