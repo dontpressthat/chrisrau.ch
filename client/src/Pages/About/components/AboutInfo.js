@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: ${props => props.direction};
   flex-wrap: ${props => props.wrap};
   margin-top: ${props => props.marginTop}px;
-  background-color: lightgray;
+  /* background-color: lightgray; */
   height: 420px;
 `
 
