@@ -6,8 +6,13 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: ${props => props.direction};
   flex-wrap: ${props => props.wrap};
-  margin-top: ${props => props.marginTop}px;
   text-align: justify;
+  @media only screen and (min-width: 900px) {
+    margin-top: 40px;
+  };
+  @media only screen and (max-width: 900px) {
+    margin-top: 0;
+  };
 `
 
 const AboutInfo = () => {
