@@ -100,9 +100,9 @@ const ProjectInfo = ({ info, hide }) => {
         </Close>
       </Header>
       <TextContainer>
-        <StyledText size={16} color='#444444'>
+        {/* <StyledText size={16} color='#444444'> */}
           {description}
-        </StyledText>
+        {/* </StyledText> */}
         <ButtonContainer>
           {github ? githubButton : null}
         </ButtonContainer>
