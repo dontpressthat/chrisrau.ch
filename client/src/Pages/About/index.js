@@ -7,8 +7,10 @@ import ContactArea from './components/ContactArea';
 import { Helmet } from 'react-helmet';
 
 const Container = styled.div`
-  margin-top: 40px;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: ${props => props.marginTop}px;
 `
 
 const About = () => {
@@ -20,22 +22,16 @@ const About = () => {
       <StyledFlex.Row>
         <StyledFlex.Col size={1} />
         <StyledFlex.Col size={4}>
-          <Container>
 
-            <StyledFlex.Row>
-              <StyledFlex.Col size={1}>
-                <AboutInfo />
-              </StyledFlex.Col>
-              <StyledFlex.Col size={1}>
-                <MoreInfo />
-              </StyledFlex.Col>
-            </StyledFlex.Row>
+            <Container>
+              <AboutInfo />
+              <MoreInfo />
+            </Container>
+
             <ContactArea />
 
-          </Container>
         </StyledFlex.Col>
-        <StyledFlex.Col size={1}>
-        </StyledFlex.Col>
+        <StyledFlex.Col size={1} />
       </StyledFlex.Row>
 
     </StyledFlex.Grid>

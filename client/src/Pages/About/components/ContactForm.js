@@ -101,7 +101,7 @@ const ContactForm = () => {
 
   return (
     <Container display='flex' direction='column' width='100%'>
-      <StyledText size={42} weight={500} color='#4a544e' font='Ubuntu'>Send a message</StyledText>
+      <StyledText size={42} weight={500} color='#4a544e' font='Ubuntu' marginTop={30}>Send a message</StyledText>
       <form onSubmit={handleSubmit}>
         <Container display='flex' direction='row' margin='10px'>
           <StyledInput height='40px' width='50%' value={state.name} name='name' placeholder='NAME' onChange={handleChange} marginRight='5px' required />

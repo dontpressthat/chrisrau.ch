@@ -18,7 +18,7 @@ const Container = styled.div`
 
 const ModalBox = styled.div`
   z-index: 1050;
-  background: white;
+  background: #f0f0f0;
   position: relative;
   margin: 5.5rem auto;
   border-radius: 3px;

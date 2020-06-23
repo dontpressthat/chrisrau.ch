@@ -10,18 +10,18 @@ const projectList = [
   {
     name: 'chrisrau.ch',
     category: 'Software Engineering',
-    image: `/assets/images/1.jpg`,
+    image: `/assets/images/chrisrauch.png`,
     description:
       <Container>
         <StyledText size={16} color='#444444'>
           <p>
-            chrisrau.ch is React single page application (SPA) built to serve as my personal portfolio website. The goal was to build a highly maintainable application tailored to the use case of showcasing my various projects and hobbies. In an effort to keep things lightweight, as well as provide a challenge, almost all app features were manually written as opposed to using readily available packages or libraries.
+            chrisrau.ch is React single page application (SPA) built to serve as my personal portfolio website. The goal was to build a highly maintainable application tailored to the use case of showcasing my various projects and hobbies. In an effort to keep things lightweight, as well as to provide a challenge, almost all app features were manually written as opposed to using readily available packages or libraries.
           </p>
           <p>
-            Because numerous elements on the project page are designed to display redundant information from each project, the project names, categories, images, descriptions, and GitHub links are all referenced from one single source of truth (SSoT). This prevents the need to edit multiple files with the same information, preventing potential discrepancies and/or errors. The categories filter bar is also programmatically built and rendered from all unique categories found in the project data file.
+            Because numerous elements on the project page are designed to display redundant information from each project, the project names, categories, images, descriptions, and GitHub links are all referenced from one single source of truth (SSoT). This prevents the need to edit multiple files with the same information, in turn preventing potential discrepancies and/or errors. The categories filter bar is also programmatically built and rendered from all unique categories found in the project data file.
           </p>
           <p>
-            A large amount of attention was given to responsiveness and browser compatibility. All aspects of the website will actively respond to resizing down to a window width of just 300 pixels, and care was taken to only use widely-supported CSS properties for all core functionality. The behavior of various elements will also change completely depending on screen size. This ensures usability and positive user experience on all devices, whether it be mobile or desktop.
+            A large amount of attention was given to responsiveness and browser compatibility. All aspects of the website will actively respond to resizing down to a window width of just 300 pixels, and care was taken to use only widely-supported CSS properties for all core functionality. The behavior of various elements will also change completely depending on screen size. This ensures usability and positive user experience on all devices, whether it be mobile or desktop.
           </p>
           <p>Google's Firebase powers the backend of this application, acting as the webhost and server.</p>
         </StyledText>

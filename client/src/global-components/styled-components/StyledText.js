@@ -8,6 +8,7 @@ const StyledText = styled.a`
   text-decoration: ${props => props.decoration};
   color: ${props => props.color};
   margin-left: ${props => props.indent}px;
+  margin-top: ${props => props.marginTop}px;
   user-select: ${props => props.disableHighlight === true ? 'none' : null};
   outline: ${props => props.outline};
   white-space: ${props => props.whiteSpace};
