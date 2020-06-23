@@ -14,7 +14,7 @@ const StyledInput = styled.input`
   width: ${props => props.width};
   height: ${props => props.height};
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   border: solid 1px #999999;
   box-sizing: border-box;
   background-color: #fff;
@@ -28,7 +28,7 @@ const StyledTextArea = styled.textarea`
   font-family: 'Roboto Condensed', sans-serif;
   border: solid 1px #999999;
   resize: none;
-  font-size: 18px;
+  font-size: 14px;
   box-sizing: border-box;
   background-color: #fff;
 `
@@ -40,6 +40,10 @@ const StyledSubmit = styled.button`
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
+  font-weight: 300;
+  &:hover {
+    cursor: crosshair;
+  }
 `
 
 const ContactForm = () => {
@@ -51,29 +55,48 @@ const ContactForm = () => {
     message: ''
   });
 
+  const [submitButton, setSubmitButton] = useState('Send');
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setState(prevState => ({ ...prevState, [name]: value }));
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+    const name = state.name;
+    const email = state.email;
+    const subject = state.subject;
+    const message = state.message;
+
     Email.send({
       SecureToken: '9943eb0a-a23c-45b7-8cc3-82ec388ae2de',
       To: 'chris@chrisrau.ch',
       From: 'chris@chrisrau.ch',
-      Subject: `${state.subject}`,
-      Body: `${state.message}`
-    }).then(
-      message => alert(message)
-    ).then(
-      () => setState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      })
-    )
+      Subject: `${subject}`,
+      Body: `Message from ${name} (${email}): ${message}`
+    }).then(message => {
+      if (message === 'OK') {
+        setSubmitButton('Sending..');
+        setTimeout(() => {
+          setState({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          });
+          setSubmitButton('Sent!');
+          setTimeout(() => {
+            setSubmitButton('Send');
+          }, 3000)
+        }, 6000);
+        return;
+      } else {
+        alert(message);
+      }
+    });
+
+
   }
 
   return (
@@ -90,7 +113,7 @@ const ContactForm = () => {
         <Container margin='10px'>
           <StyledTextArea value={state.message} name='message' placeholder='MESSAGE' onChange={handleChange} required />
         </Container>
-        <StyledSubmit type="submit" value="Submit">SEND</StyledSubmit>
+        <StyledSubmit type="submit" value="Submit">{submitButton}</StyledSubmit>
       </form>
     </Container>
   )

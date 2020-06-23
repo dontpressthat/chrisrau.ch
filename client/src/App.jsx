@@ -6,7 +6,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Me from './Pages/Me';
+import Hello from './Pages/Hello';
 import Projects from './Pages/Projects';
 import About from './Pages/About';
 import Modal from './Pages/Projects/components/Modal';
@@ -26,6 +26,7 @@ const MainContent = styled.div`
   background-color: #f0f0f0;
   width: 100%;
   height: 100%;
+  padding: 30px 0;
 `
 
 const Copyright = styled.a`
@@ -39,8 +40,10 @@ const App = () => {
   const year = new Date().getFullYear();
 
   const { isShowing, toggle } = useModal();
+  const [projectInfo, setProjectInfo] = useState({});
 
-  const handlePopup = () => {
+  const handlePopup = (info) => {
+    setProjectInfo(info);
     toggle();
   };
 
@@ -51,7 +54,7 @@ const App = () => {
           <NavBar />
           <MainContent>
             <Switch>
-              <Route exact component={Me} path="/" />
+              <Route exact component={Hello} path="/" />
               <Route exact render={() => <Projects handlePopup={handlePopup} />} path="/Projects" />
               <Route exact component={About} path="/About" />
             </Switch>
@@ -59,7 +62,7 @@ const App = () => {
         </Router>
         <Copyright>{`© ${year} - Chris Rauch`}</Copyright>
       </Container>
-      <Modal isShowing={isShowing} hide={toggle}></Modal>
+      <Modal isShowing={isShowing} hide={toggle} info={projectInfo}></Modal>
     </React.Fragment>
   )
 }

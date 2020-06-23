@@ -6,7 +6,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-bottom: 20px;
 `
 
@@ -34,6 +34,7 @@ const Categories = ({ handleFilter, projects, active }) => {
           weight={item === active ? 600 : 400}
           fontStyle={item === active ? 'italic' : null}
           hoverStyle='italic'
+          whiteSpace='nowrap'
           cursor='crosshair'
           onClick={() => handleFilter(item)}
           disableHighlight={true}
@@ -60,6 +61,7 @@ const Categories = ({ handleFilter, projects, active }) => {
         weight={active === item ? 600 : 400}
         fontStyle={item === active ? 'italic' : null}
         hoverStyle='italic'
+        whiteSpace='nowrap'
         cursor='crosshair'
         onClick={() => handleFilter(item)}
         disableHighlight={true}

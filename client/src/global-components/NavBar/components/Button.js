@@ -7,12 +7,6 @@ import {
   NavLink
 } from "react-router-dom";
 
-const Title = styled.a`
-  font-size: 20px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
-`
-
 const StyledNavLink = styled(NavLink)`
   display: flex;
   justify-content: center;
@@ -33,7 +27,7 @@ const StyledNavLink = styled(NavLink)`
 `
 
 const Button = ({ title }) => {
-  const link = title === 'Me' ? '/' : `/${title.toLowerCase()}`;
+  const link = title === 'Hello' ? '/' : `/${title.toLowerCase()}`;
   return (
     <StyledNavLink exact to={link} activeStyle={{borderBottom: 'solid #888888 2px'}}>{title}</StyledNavLink>
   )

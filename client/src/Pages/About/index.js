@@ -4,6 +4,7 @@ import StyledFlex from '../../global-components/styled-components/StyledFlex';
 import AboutInfo from './components/AboutInfo';
 import MoreInfo from './components/MoreInfo';
 import ContactArea from './components/ContactArea';
+import { Helmet } from 'react-helmet';
 
 const Container = styled.div`
   margin-top: 40px;
@@ -13,7 +14,9 @@ const Container = styled.div`
 const About = () => {
   return (
     <StyledFlex.Grid>
-
+      <Helmet>
+        <title>About Me</title>
+      </Helmet>
       <StyledFlex.Row>
         <StyledFlex.Col size={1} />
         <StyledFlex.Col size={4}>

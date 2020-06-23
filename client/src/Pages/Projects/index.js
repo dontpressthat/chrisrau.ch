@@ -4,13 +4,31 @@ import StyledFlex from '../../global-components/styled-components/StyledFlex';
 import Tile from './components/Tile';
 import Categories from './components/Categories';
 import projectList from './projectList';
+import { Helmet } from 'react-helmet';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const TileGrid = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  };
+  @media only screen and (min-width: 600px) and (max-width: 1080px) {
+    width: 520px;
+  };
+  @media only screen and (min-width: 900px) {
+    width: 780px;
+  };
+`
+
+const CenterContainer = styled.div`
 `
 
 const Projects = ({ handlePopup }) => {
@@ -25,31 +43,36 @@ const Projects = ({ handlePopup }) => {
     projects.filter(
       ({ category }) =>
         showCategory === category || showCategory === 'All'
-    ).map(({ category, name, image }) => (
+    ).map(({ category, name, image, description, github, date }) => (
       <Tile
         key={`ProjectItems-${name}`}
-        category={category}
-        name={name}
-        image={image}
+        info={
+          {
+            name: name,
+            image: image,
+            category: category,
+            description: description,
+            github: github,
+            date: date
+          }
+        }
         handleClick={handlePopup}
       />
     ))
   );
 
   return (
-    <StyledFlex.Grid>
-      <StyledFlex.Row position=''>
-        <StyledFlex.Col size={1} />
-        <StyledFlex.Col size={4}>
-          <Categories handleFilter={handleFilter} projects={projectList} active={activeCategory} />
-          <TileGrid>
-            <ProjectItems projects={projectList} showCategory={activeCategory} />
-          </TileGrid>
-        </StyledFlex.Col>
-        <StyledFlex.Col size={1}>
-        </StyledFlex.Col>
-      </StyledFlex.Row>
-    </StyledFlex.Grid>
+    <Container>
+      <Helmet>
+        <title>My Projects</title>
+      </Helmet>
+      <Categories handleFilter={handleFilter} projects={projectList} active={activeCategory} />
+      <CenterContainer>
+        <TileGrid>
+          <ProjectItems projects={projectList} showCategory={activeCategory} />
+        </TileGrid>
+      </CenterContainer>
+    </Container>
   )
 }
 

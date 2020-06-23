@@ -10,18 +10,19 @@ const StyledText = styled.a`
   margin-left: ${props => props.indent}px;
   user-select: ${props => props.disableHighlight === true ? 'none' : null};
   outline: ${props => props.outline};
+  white-space: ${props => props.whiteSpace};
   
   &:hover {
     cursor: ${props => props.cursor};
     font-style: ${props => props.hoverStyle};
   }
 
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 900px) {
     font-size: ${props => props.size * 0.75}px;
   }
 
-  @media only screen and (max-width: 640px) {
-    font-size: calc(4px + ${props => props.size * 0.50}px);
+  @media only screen and (max-width: 350px) {
+    font-size: calc(${props => props.size * 0.65}px);
   }
 `
 
